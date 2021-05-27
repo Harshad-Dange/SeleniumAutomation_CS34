@@ -39,7 +39,7 @@ public class baseClass {
 
 			WebDriverManager.chromedriver().setup();
 
-			driver = new ChromeDriver(setCapabilitiesForChrome());
+			driver = new ChromeDriver();
 			return driver;
 
 		case "Mozila":
