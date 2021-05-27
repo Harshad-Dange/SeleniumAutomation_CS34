@@ -1,5 +1,7 @@
 package OrangeHrmPages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +11,9 @@ import SeleniumFramework.baseClass;
 
 public class LeavePage extends baseClass {
 	
-	public LeavePage(WebDriver driver){
+	public LeavePage(){
 		
-		PageFactory.initElements(driver, LeavePage.class);
+		PageFactory.initElements(driver,this);
 	}
 
 	@FindBy(xpath="//a[@id='menu_leave_viewLeaveModule']")
@@ -34,5 +36,17 @@ public class LeavePage extends baseClass {
 	
 	@FindBy(xpath="//div[@id='apply-leave']/div[1]/h1")
 	public WebElement applyLeaveText;
+	
+	@FindBy(id="applyleave_txtFromDate")
+	public WebElement fromDate;
+	
+	@FindBy(className = "ui-datepicker-month")
+	public WebElement calendarMonth;
 
+	@FindBy(className = "ui-datepicker-year")
+	public WebElement calendarYear;
+	
+	@FindBy(xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
+	public List<WebElement> calendarDays;
+	
 }

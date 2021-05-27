@@ -10,10 +10,10 @@ import org.testng.Assert;
 import SeleniumFramework.baseClass;
 
 public class LoginPage extends baseClass {
-	
-	public LoginPage(WebDriver driver){
-		
-		PageFactory.initElements(driver, LoginPage.class);
+
+	public LoginPage() {
+
+		PageFactory.initElements(driver, this);
 	}
 
 	// username locator
@@ -27,21 +27,20 @@ public class LoginPage extends baseClass {
 
 	// forgotPasswordLink
 	By forgotPasswordLink = By.xpath("//div[@id='forgotPasswordLink']/a");
-	
-	//Reset Password Button
-	By resetPasswordButton= By.id("btnSearchValues");
-	
-	By forgetPasswordUsername= By.id("securityAuthentication_userName");
-	
-	@FindBy(id="txtUsername")
+
+	// Reset Password Button
+	By resetPasswordButton = By.id("btnSearchValues");
+
+	By forgetPasswordUsername = By.id("securityAuthentication_userName");
+
+	@FindBy(id = "txtUsername")
 	public WebElement username;
-	
-	@FindBy(id="txtPassword")
+
+	@FindBy(id = "txtPassword")
 	public WebElement password;
-	
-	@FindBy(xpath="//input[@id='btnLogin']")
+
+	@FindBy(xpath = "//input[@id='btnLogin']")
 	public WebElement loginButton;
-	
 
 	/**
 	 * This method will perform the login operation based on provided username and
@@ -56,21 +55,20 @@ public class LoginPage extends baseClass {
 		loginButton.click();
 
 	}
-	
-	
+
 	/**
 	 * This method will to reset the password for orange hrm website
 	 */
 	public void forgotPassword(String username) {
-		
+
 		driver.findElement(forgotPasswordLink).click();
-		
+
 		Assert.assertTrue(driver.findElement(resetPasswordButton).isDisplayed());
-		
+
 		driver.findElement(forgetPasswordUsername).sendKeys(username);
-		
-		driver.findElement(resetPasswordButton).click();			
-		
+
+		driver.findElement(resetPasswordButton).click();
+
 	}
 
 }

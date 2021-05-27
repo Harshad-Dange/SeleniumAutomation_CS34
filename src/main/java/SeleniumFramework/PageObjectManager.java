@@ -2,6 +2,8 @@ package SeleniumFramework;
 
 import java.util.Objects;
 
+import OrangeHrmPages.AddEmployeePage;
+import OrangeHrmPages.BuzzPage;
 import OrangeHrmPages.DashboardPage;
 import OrangeHrmPages.LeavePage;
 import OrangeHrmPages.LoginPage;
@@ -13,6 +15,8 @@ public class PageObjectManager extends baseClass {
 	private LogoutPage logoutPage;
 	private DashboardPage dashboardPage;
 	private LeavePage leavePage;
+	private BuzzPage  buzzPage;
+	private AddEmployeePage addEmployeePage;
 	private Util util;
 
 	/**
@@ -22,7 +26,7 @@ public class PageObjectManager extends baseClass {
 	 */
 	public LoginPage getLoginpageInstance() {
 
-		return (Objects.isNull(loginPage)) ? new LoginPage(driver) : loginPage;
+		return (Objects.isNull(loginPage)) ? new LoginPage() : loginPage;
 	}
 	
 
@@ -58,12 +62,37 @@ public class PageObjectManager extends baseClass {
 	 */
 	public LeavePage getLeavePageInstance() {
 
-		return (Objects.isNull(leavePage)) ? new LeavePage(driver) : leavePage;
+		return (Objects.isNull(leavePage)) ? new LeavePage() : leavePage;
 	}
 
+	/**
+	 * This method will return the object of Util class. If the Util class
+	 * reference variable  is null then in that case it will create new object of the
+	 * Util class
+	 */
 	public Util getUtilInstance() {
 
 		return (Objects.isNull(util)) ? new Util() : util;
 	}
 	
+	
+	/**
+	 * This method will return the object of BuzzPage class. If the BuzzPage class
+	 * reference variable  is null then in that case it will create new object of the
+	 * BuzzPage class
+	 */
+	public BuzzPage getBuzzPageInstance() {
+
+		return (Objects.isNull(buzzPage)) ? new BuzzPage() : buzzPage;
+	}
+	
+	/**
+	 * This method will return the object of AddEmployeePage class. If the AddEmployeePage class
+	 * reference variable  is null then in that case it will create new object of the
+	 * AddEmployeePage class
+	 */
+	public AddEmployeePage getAddEmpPageInstance() {
+
+		return (Objects.isNull(addEmployeePage)) ? new AddEmployeePage() : addEmployeePage;
+	}
 }
