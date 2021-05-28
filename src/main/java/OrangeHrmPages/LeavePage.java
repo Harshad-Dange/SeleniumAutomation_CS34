@@ -13,7 +13,7 @@ public class LeavePage extends baseClass {
 	
 	public LeavePage(){
 		
-		PageFactory.initElements(driver,this);
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(xpath="//a[@id='menu_leave_viewLeaveModule']")
@@ -36,17 +36,24 @@ public class LeavePage extends baseClass {
 	
 	@FindBy(xpath="//div[@id='apply-leave']/div[1]/h1")
 	public WebElement applyLeaveText;
+
 	
 	@FindBy(id="applyleave_txtFromDate")
 	public WebElement fromDate;
 	
-	@FindBy(className = "ui-datepicker-month")
+	@FindBy(id="applyleave_txtToDate")
+	public WebElement toDate;
+	
+	@FindBy(id="ui-datepicker-div")
+	public WebElement calendar;
+	
+	@FindBy(className="ui-datepicker-month")
 	public WebElement calendarMonth;
-
-	@FindBy(className = "ui-datepicker-year")
+	
+	@FindBy(className="ui-datepicker-year")
 	public WebElement calendarYear;
 	
-	@FindBy(xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
+	@FindBy(xpath="//table[@class='ui-datepicker-calendar']/descendant::a")
 	public List<WebElement> calendarDays;
 	
 }

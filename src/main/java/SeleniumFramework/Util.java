@@ -4,12 +4,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Util extends baseClass {
 	
-	
+	PageObjectManager pageObjectManager;
 	ConfigProperties properties;
 	Wait<WebDriver> wait;
 	
@@ -49,4 +50,31 @@ public class Util extends baseClass {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
+	
+	/**
+	 * This method helps to select the month from the calendar based on the provided parementers
+	 * @param WebElement, String value
+	 */	
+	public void selectMonthInCalendar(WebElement element, String value) {
+		
+		pageObjectManager= new PageObjectManager();
+		
+		Util util= pageObjectManager.getUtilInstance();
+		
+		util.selectByValue(element, value);
+	}
+	
+	/**
+	 * This method helps to select the year from the calendar based on the provided parementers
+	 * @param WebElement, String value
+	 */	
+	public void selectYearInCalendar(WebElement element, String value) {
+		
+		pageObjectManager= new PageObjectManager();
+		
+		Util util= pageObjectManager.getUtilInstance();
+		
+		util.selectByValue(element, value);
+	}
+	
 }
